@@ -23,7 +23,7 @@ fun BlogCell(data: BlogData, onClick: () -> Unit) {
         .clickable { onClick() }) {
         AndroidView(
             factory = { context ->
-                val view = LayoutInflater.from(context).inflate(R.layout.blog_layout, null, false)
+                val view = LayoutInflater.from(context).inflate(R.layout.image_corner_layout, null, false)
                 val imageView = view.findViewById<ImageView>(R.id.photo)
                 Picasso.get().load(data.image?.lg).into(imageView)
                 view

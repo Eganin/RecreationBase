@@ -37,7 +37,6 @@ class MainViewModel @Inject constructor(
             repository.getFoodsForMainPage().collect { result ->
                 wrapperForHandlerResource(result = result){
                     state = state.copy(foods =it)
-                    Log.d("EEE",it.toString())
                 }
             }
         }

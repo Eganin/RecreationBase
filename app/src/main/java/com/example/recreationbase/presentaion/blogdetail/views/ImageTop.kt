@@ -2,17 +2,12 @@ package com.example.recreationbase.presentaion.blogdetail.views
 
 import android.view.LayoutInflater
 import android.widget.ImageView
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
 import androidx.compose.material.OutlinedButton
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
@@ -26,7 +21,7 @@ fun ImageTop(linkImage: String, onClick: () -> Unit) {
         AndroidView(
             factory = { context ->
                 val view =
-                    LayoutInflater.from(context).inflate(R.layout.blog_detail_layout, null, false)
+                    LayoutInflater.from(context).inflate(R.layout.image_layout, null, false)
                 val imageView = view.findViewById<ImageView>(R.id.photo_blog_detail)
                 Picasso.get().load(linkImage).into(imageView)
                 view
