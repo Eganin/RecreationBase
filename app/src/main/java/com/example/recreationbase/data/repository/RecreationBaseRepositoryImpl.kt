@@ -1,8 +1,10 @@
 package com.example.recreationbase.data.repository
 
+import com.example.recreationbase.data.mapper.toBlogData
 import com.example.recreationbase.data.remote.RecreationBaseApi
 import com.example.recreationbase.data.remote.dto.blog.BlogDataDto
 import com.example.recreationbase.data.remote.dto.blogdetail.BlogDetailData
+import com.example.recreationbase.domain.model.BlogData
 import com.example.recreationbase.domain.repository.RecreationBaseRepository
 import com.example.recreationbase.util.Resource
 import kotlinx.coroutines.flow.Flow
@@ -15,9 +17,9 @@ import javax.inject.Inject
 class RecreationBaseRepositoryImpl @Inject constructor(
     private val api: RecreationBaseApi
 ) : RecreationBaseRepository {
-    override suspend fun getBlogsForMainPage(): Flow<Resource<List<BlogDataDto>>> {
+    override suspend fun getBlogsForMainPage(): Flow<Resource<List<BlogData>>> {
         return flow {
-            val response = api.getBlogs().data
+            val response = api.getBlogs().data.map { it.toBlogData() }
             bodyForDataLoading { response }
         }
     }

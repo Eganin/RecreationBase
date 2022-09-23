@@ -13,7 +13,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.recreationbase.presentaion.blogs.MainViewModel
+import com.example.recreationbase.presentaion.blogs.MainPage
+import com.example.recreationbase.presentaion.MainViewModel
 import com.example.recreationbase.ui.theme.AppTheme
 import com.example.recreationbase.ui.theme.RecreationBaseTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -46,18 +47,17 @@ class MainActivity : ComponentActivity() {
                             BottomBar(navController = navController)
                         }
                     ) {
+                        NavHost(
+                            navController = navController,
+                            startDestination = DestinationPage.MAIN.name
+                        ) {
+                            composable("BlogDetail"){
 
-                    }
-                    NavHost(
-                        navController = navController,
-                        startDestination = DestinationPage.MAIN.name
-                    ) {
-                        composable("BlogDetail"){
+                            }
 
-                        }
-
-                        composable(DestinationPage.MAIN.name){
-
+                            composable(DestinationPage.MAIN.name){
+                                MainPage(viewModel = viewModel,navController=navController)
+                            }
                         }
                     }
                 }
