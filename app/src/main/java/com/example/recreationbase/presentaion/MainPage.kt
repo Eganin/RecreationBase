@@ -11,6 +11,7 @@ import com.example.recreationbase.presentaion.blogs.BlogView
 
 @Composable
 fun MainPage(viewModel : MainViewModel, navController: NavController) {
+    viewModel.onEvent(event = Event.LoadFoods)
     LazyColumn(
         modifier = Modifier.fillMaxWidth()
     ){

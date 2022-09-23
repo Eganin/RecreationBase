@@ -19,7 +19,7 @@ fun BlogView(viewModel : MainViewModel,navController: NavController) {
     val state = viewModel.state
 
     LazyRow(modifier = Modifier.fillMaxWidth()){
-        state.info.forEach {data->
+        state.blogs.forEach {data->
             item {
                 BlogCell(data = data){
                     with(navController) {
