@@ -1,18 +1,19 @@
 package com.example.recreationbase.data.remote
 
-import okhttp3.ResponseBody
+import com.example.recreationbase.data.remote.dto.blog.BlogsDto
+import com.example.recreationbase.data.remote.dto.blogdetail.BlogDetail
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface RecreationBaseApi {
 
     @GET("api/base-app/blog?id=117&format=card")
-    suspend fun getBlogs() : ResponseBody
+    suspend fun getBlogs() : BlogsDto
 
     @GET("api/base-app/blog-info?id=117")
     suspend fun getDetailBlogInfo(
         @Query("blog_id") blogId: Int
-    )
+    ) : BlogDetail
 
     @GET("api/base-app/fun?id=117&type=food")
     suspend fun getFoods()
