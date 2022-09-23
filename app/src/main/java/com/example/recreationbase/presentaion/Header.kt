@@ -9,7 +9,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.recreationbase.ui.theme.AppTheme
 import com.example.recreationbase.ui.theme.Typography
-import retrofit2.http.Header
 
 @Composable
 fun Header(text: String) {

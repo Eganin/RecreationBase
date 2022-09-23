@@ -11,4 +11,5 @@ interface RecreationBaseRepository {
     suspend fun getBlogsForMainPage() : Flow<Resource<List<BlogData>>>
 
     suspend fun getDetailInfoBlog(blogId : Int) : Flow<Resource<BlogDetailData>>
+
 }
