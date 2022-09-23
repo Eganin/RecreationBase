@@ -1,21 +1,28 @@
 package com.example.recreationbase.presentaion
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
+import com.example.recreationbase.R
 import com.example.recreationbase.presentaion.blogs.BlogView
-import com.example.recreationbase.ui.theme.AppTheme
 
 @Composable
 fun MainPage(viewModel : MainViewModel, navController: NavController) {
     LazyColumn(
-        modifier = Modifier.fillMaxSize().background(AppTheme.colors.primaryBackground)
+        modifier = Modifier.fillMaxWidth()
     ){
+        item {
+            Header(text = stringResource(R.string.food_title))
+        }
+        item {
+            Header(text = stringResource(R.string.blog_title))
+        }
         item {
             BlogView(viewModel = viewModel, navController = navController)
         }
+
     }
 }
