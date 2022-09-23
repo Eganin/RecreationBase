@@ -13,8 +13,10 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.recreationbase.presentaion.blogs.MainPage
+import com.example.recreationbase.presentaion.MainPage
 import com.example.recreationbase.presentaion.MainViewModel
+import com.example.recreationbase.presentaion.blogdetail.BlogDetailPage
+import com.example.recreationbase.presentaion.blogdetail.BlogDetailViewModel
 import com.example.recreationbase.ui.theme.AppTheme
 import com.example.recreationbase.ui.theme.RecreationBaseTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -23,7 +25,8 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private val viewModel: MainViewModel by viewModels()
+    private val mainViewModel: MainViewModel by viewModels()
+    private val blogDetailViewModel: BlogDetailViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -51,12 +54,22 @@ class MainActivity : ComponentActivity() {
                             navController = navController,
                             startDestination = DestinationPage.MAIN.name
                         ) {
-                            composable("BlogDetail"){
-
+                            composable("BlogDetail") { navBackStackEntry ->
+                                val id =
+                                    navController.previousBackStackEntry?.savedStateHandle?.get<Int>(
+                                        "ID_KEY"
+                                    )
+                                id?.let {
+                                    BlogDetailPage(
+                                        id = it,
+                                        viewModel = blogDetailViewModel,
+                                        navController = navController
+                                    )
+                                }
                             }
 
-                            composable(DestinationPage.MAIN.name){
-                                MainPage(viewModel = viewModel,navController=navController)
+                            composable(DestinationPage.MAIN.name) {
+                                MainPage(viewModel = mainViewModel, navController = navController)
                             }
                         }
                     }

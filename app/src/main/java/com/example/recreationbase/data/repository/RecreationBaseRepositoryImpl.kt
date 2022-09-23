@@ -26,7 +26,10 @@ class RecreationBaseRepositoryImpl @Inject constructor(
 
     override suspend fun getDetailInfoBlog(blogId: Int): Flow<Resource<BlogDetailData>> {
         return flow {
-            val response = api.getDetailBlogInfo(blogId = blogId).data
+            val response = api.getDetailBlogInfo(blogId = blogId).data?.apply {
+                val arrDate = date?.split("T")?.get(0)?.split("-")
+                date= "${arrDate?.get(2)}.${arrDate?.get(1)}.${arrDate?.get(0)}"
+            }
             response?.let {
                 bodyForDataLoading { it }
             }

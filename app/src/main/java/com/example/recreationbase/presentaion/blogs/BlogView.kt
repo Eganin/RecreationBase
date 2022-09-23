@@ -21,7 +21,12 @@ fun BlogView(viewModel : MainViewModel,navController: NavController) {
     LazyRow(modifier = Modifier.fillMaxWidth()){
         state.info.forEach {data->
             item {
-                BlogCell(data = data)
+                BlogCell(data = data){
+                    with(navController) {
+                        currentBackStackEntry?.savedStateHandle?.set(key = "ID_KEY", value = data.id)
+                        navigate("BlogDetail")
+                    }
+                }
             }
         }
     }

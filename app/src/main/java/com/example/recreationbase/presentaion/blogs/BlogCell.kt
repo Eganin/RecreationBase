@@ -2,10 +2,8 @@ package com.example.recreationbase.presentaion.blogs
 
 import android.view.LayoutInflater
 import android.widget.ImageView
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -19,8 +17,10 @@ import com.example.recreationbase.ui.theme.Typography
 import com.squareup.picasso.Picasso
 
 @Composable
-fun BlogCell(data: BlogData) {
-    Column(modifier = Modifier.fillMaxWidth()) {
+fun BlogCell(data: BlogData, onClick: () -> Unit) {
+    Column(modifier = Modifier
+        .fillMaxWidth()
+        .clickable { onClick() }) {
         AndroidView(
             factory = { context ->
                 val view = LayoutInflater.from(context).inflate(R.layout.blog_layout, null, false)
@@ -47,11 +47,12 @@ fun BlogCell(data: BlogData) {
                 text = it,
                 modifier = Modifier
                     .fillMaxWidth()
+                    .width(328.dp)
                     .padding(top = 2.dp, start = 16.dp, end = 16.dp),
                 style = Typography.body1.copy(
                     color = AppTheme.colors.primaryText,
                     fontWeight = FontWeight.Bold
-                )
+                ),
             )
 
         }
