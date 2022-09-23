@@ -15,23 +15,23 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
 
 
-    fun downloadData(){
+    fun downloadData() {
         viewModelScope.launch {
-            repository.getDetailInfoBlog(blogId = 233).collect{ result ->
-                when(result){
-                    is Resource.Success ->{
+            repository.getDetailInfoBlog(blogId = 233).collect { result ->
+                when (result) {
+                    is Resource.Success -> {
                         result.data?.let {
 
-                                Log.d("EEE",it.toString())
+                            Log.d("EEE", it.toString())
 
                         }
                     }
 
-                    is Resource.Error ->{
+                    is Resource.Error -> {
 
                     }
 
-                    is Resource.Loading ->{
+                    is Resource.Loading -> {
 
                     }
                 }
