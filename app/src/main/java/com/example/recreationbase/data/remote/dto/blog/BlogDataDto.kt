@@ -2,6 +2,7 @@ package com.example.recreationbase.data.remote.dto.blog
 
 import kotlinx.serialization.SerialName
 
+@kotlinx.serialization.Serializable
 data class BlogDataDto(
 
     @SerialName("id") var id: Int? = null,

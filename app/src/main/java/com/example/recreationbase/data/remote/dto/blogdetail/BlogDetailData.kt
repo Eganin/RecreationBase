@@ -1,7 +1,7 @@
 package com.example.recreationbase.data.remote.dto.blogdetail
 
 import kotlinx.serialization.SerialName
-
+@kotlinx.serialization.Serializable
 data class BlogDetailData(
     @SerialName("id") var id: Int? = null,
     @SerialName("url") var url: String? = null,

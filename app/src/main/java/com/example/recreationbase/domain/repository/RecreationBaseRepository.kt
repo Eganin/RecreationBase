@@ -5,7 +5,7 @@ import com.example.recreationbase.data.remote.dto.blogdetail.BlogDetailData
 import com.example.recreationbase.util.Resource
 import kotlinx.coroutines.flow.Flow
 
-interface BlogsRepository {
+interface RecreationBaseRepository {
 
     suspend fun getBlogsForMainPage() : Flow<Resource<List<BlogDataDto>>>
 

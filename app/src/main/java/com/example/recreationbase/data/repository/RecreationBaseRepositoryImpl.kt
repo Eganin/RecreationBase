@@ -3,7 +3,7 @@ package com.example.recreationbase.data.repository
 import com.example.recreationbase.data.remote.RecreationBaseApi
 import com.example.recreationbase.data.remote.dto.blog.BlogDataDto
 import com.example.recreationbase.data.remote.dto.blogdetail.BlogDetailData
-import com.example.recreationbase.domain.repository.BlogsRepository
+import com.example.recreationbase.domain.repository.RecreationBaseRepository
 import com.example.recreationbase.util.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.FlowCollector
@@ -12,9 +12,9 @@ import okio.IOException
 import retrofit2.HttpException
 import javax.inject.Inject
 
-class BlogsRepositoryImpl @Inject constructor(
+class RecreationBaseRepositoryImpl @Inject constructor(
     private val api: RecreationBaseApi
-) : BlogsRepository {
+) : RecreationBaseRepository {
     override suspend fun getBlogsForMainPage(): Flow<Resource<List<BlogDataDto>>> {
         return flow {
             val response = api.getBlogs().data
