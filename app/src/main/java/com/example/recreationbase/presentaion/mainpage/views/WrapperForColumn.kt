@@ -1,11 +1,13 @@
 package com.example.recreationbase.presentaion.mainpage.views
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.example.recreationbase.R
 import com.example.recreationbase.presentaion.views.ActionButton
 import com.google.accompanist.flowlayout.FlowColumn
@@ -17,7 +19,7 @@ fun <T> WrapperForColumn(
     content: @Composable (Int) -> Unit
 ) {
     var changeSizeRepeat by remember { mutableStateOf(false) }
-    Column {
+    Column(modifier = Modifier.padding(16.dp)) {
         FlowColumn {
             val repeatCount = if (changeSizeRepeat) {
                 collectionItems.size

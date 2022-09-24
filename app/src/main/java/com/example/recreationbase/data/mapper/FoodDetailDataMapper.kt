@@ -7,11 +7,12 @@ fun FoodDetailDataDto.toFoodDetailData(): FoodDetailData {
 
     val newWorkingHours = mutableListOf<Pair<String, String>>()
 
-    workingHours.forEachIndexed { index, data ->
-        val pair = getNameWeekday(number = data.days[index]) to data.from + " - " + data.to
-        newWorkingHours.add(pair)
+    workingHours?.forEach { data ->
+        data.days.forEach {
+            val pair = getNameWeekday(number = it) to data.from + " - " + data.to
+            newWorkingHours.add(pair)
+        }
     }
-
 
     return FoodDetailData(
         id = id,

@@ -25,8 +25,7 @@ fun ActionButton(openingText: String, closingText: String, onClick: () -> Unit) 
             onClick()
         },
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(start = 16.dp, top = 16.dp, end = 16.dp),
+            .fillMaxWidth(),
         shape = CircleShape.copy(all = CornerSize(15.dp)),
         border = BorderStroke(1.dp, AppTheme.colors.tintColor),
         colors = ButtonDefaults.buttonColors(

@@ -16,6 +16,6 @@ data class FoodDetailDataDto(
     @SerialName("lat") var lat: Double? = null,
     @SerialName("lon") var lon: Double? = null,
     @SerialName("contact") var contact: FoodDetailContactDto? = FoodDetailContactDto(),
-    @SerialName("working_hours") var workingHours: List<FoodDetailWorkingHours> = emptyList(),
+    @SerialName("working_hours") var workingHours: List<FoodDetailWorkingHours>? = emptyList(),
     @SerialName("images") var images: List<FoodDetailImagesDto> = emptyList()
 )

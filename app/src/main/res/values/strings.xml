@@ -13,4 +13,14 @@
     <string name="fun_for_child_label">Для детей</string>
     <string name="tours_label">Туры</string>
     <string name="places_label">Места</string>
+    <string name="arrow_bacl_icon_description">arrow back</string>
+    <string name="nutrition_label">Питание</string>
+    <string name="work_hours_label">Режим работы</string>
+    <string name="is_open_label">На данный момент</string>
+    <string name="address_label">Адрес</string>
+    <string name="show_map_label">Показать ка карте</string>
+    <string name="route_path_label">Проложить маршрут</string>
+    <string name="contact_label">Контакты</string>
+    <string name="call_phone_label">Позвонить</string>
+    <string name="description_label">Описание</string>
 </resources>
