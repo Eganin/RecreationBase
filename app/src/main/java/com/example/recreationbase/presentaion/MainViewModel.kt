@@ -41,9 +41,7 @@ class MainViewModel @Inject constructor(
         viewModelScope.launch {
             repository.getRoomsForMainPage().collect { result ->
                 wrapperForHandlerResource(result = result) {
-                    it.forEach {
-                        Log.d("EEE", it.toString())
-                    }
+                    state = state.copy(rooms = it)
                 }
             }
         }

@@ -6,4 +6,5 @@
     <string name="show_all_label">Показать всё</string>
     <string name="closing_text_label">Скрыть</string>
     <string name="rooms_label">Домики и номера</string>
+    <string name="night_price_label">/ночь</string>
 </resources>

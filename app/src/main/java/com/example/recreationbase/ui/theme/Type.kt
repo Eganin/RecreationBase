@@ -13,6 +13,11 @@ val Typography = Typography(
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp
     ),
+    body2 = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 14.sp
+    ),
     overline = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,

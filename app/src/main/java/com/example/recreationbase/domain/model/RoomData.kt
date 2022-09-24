@@ -8,5 +8,6 @@ data class RoomData(
     var title: String? = null,
     val price: String? = null,
     val currencyPrice: String? = null,
+    val discount : String? = null,
     var countTourist: Int? = null
 )

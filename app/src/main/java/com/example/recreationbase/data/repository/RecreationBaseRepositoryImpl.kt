@@ -56,7 +56,8 @@ class RecreationBaseRepositoryImpl @Inject constructor(
                         title = roomDto.title,
                         price = roomDto.price?.price.toString(),
                         currencyPrice = roomDto.price?.currency,
-                        countTourist = roomDto.countTourist
+                        countTourist = roomDto.countTourist,
+                        discount = roomDto.price?.discount
                     )
                 )
             }

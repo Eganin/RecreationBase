@@ -5,6 +5,7 @@ import androidx.compose.ui.graphics.Color
 val Orange = Color(0xFFFC6A00)
 val Blue = Color(0xFF4983C9)
 val Gray = Color(0xFF404B58)
+val Red = Color(0XFFFF645C)
 
 val baseLightPalette = AppColors(
     primaryBackground = Color(0xFFFFFFFF),
