@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.recreationbase.domain.repository.RecreationBaseRepository
 import com.example.recreationbase.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -20,23 +21,39 @@ class MainViewModel @Inject constructor(
     var state by mutableStateOf(InfoState())
         private set
 
-    fun onEvent(event: Event){
-        when(event){
-            is Event.LoadBlogs ->{
+    fun onEvent(event: Event) {
+        when (event) {
+            is Event.LoadBlogs -> {
                 downloadBlogs()
             }
 
-            is Event.LoadFoods ->{
+            is Event.LoadFoods -> {
                 downloadFoods()
+            }
+
+            is Event.LoadRooms -> {
+                downloadRooms()
             }
         }
     }
 
-    private fun downloadFoods(){
+    private fun downloadRooms() {
+        viewModelScope.launch {
+            repository.getRoomsForMainPage().collect { result ->
+                wrapperForHandlerResource(result = result) {
+                    it.forEach {
+                        Log.d("EEE", it.toString())
+                    }
+                }
+            }
+        }
+    }
+
+    private fun downloadFoods() {
         viewModelScope.launch {
             repository.getFoodsForMainPage().collect { result ->
-                wrapperForHandlerResource(result = result){
-                    state = state.copy(foods =it)
+                wrapperForHandlerResource(result = result) {
+                    state = state.copy(foods = it)
                 }
             }
         }
@@ -45,14 +62,17 @@ class MainViewModel @Inject constructor(
     private fun downloadBlogs() {
         viewModelScope.launch {
             repository.getBlogsForMainPage().collect { result ->
-                wrapperForHandlerResource(result = result){
-                    state = state.copy(blogs =it)
+                wrapperForHandlerResource(result = result) {
+                    state = state.copy(blogs = it)
                 }
             }
         }
     }
 
-    private fun <T> wrapperForHandlerResource(result : Resource<T>,onStateChangeSuccess : (T) -> Unit){
+    private fun <T> wrapperForHandlerResource(
+        result: Resource<T>,
+        onStateChangeSuccess: (T) -> Unit
+    ) {
         when (result) {
             is Resource.Success -> {
                 result.data?.let {

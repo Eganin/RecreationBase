@@ -5,6 +5,7 @@ import com.example.recreationbase.data.remote.RecreationBaseApi
 import com.example.recreationbase.data.remote.dto.blogdetail.BlogDetailDataDto
 import com.example.recreationbase.data.remote.dto.food.FoodInfo
 import com.example.recreationbase.domain.model.BlogData
+import com.example.recreationbase.domain.model.RoomData
 import com.example.recreationbase.domain.repository.RecreationBaseRepository
 import com.example.recreationbase.util.Resource
 import kotlinx.coroutines.flow.Flow
@@ -40,6 +41,26 @@ class RecreationBaseRepositoryImpl @Inject constructor(
         return flow {
             val response = api.getFoods().data
             bodyForDataLoading { response }
+        }
+    }
+
+    override suspend fun getRoomsForMainPage(): Flow<Resource<List<RoomData>>> {
+        return flow {
+            val response = api.getRooms().data
+            val result = mutableListOf<RoomData>()
+            response.forEach { roomDto ->
+                result.add(
+                    RoomData(
+                        id = roomDto.id,
+                        image = roomDto.image,
+                        title = roomDto.title,
+                        price = roomDto.price?.price.toString(),
+                        currencyPrice = roomDto.price?.currency,
+                        countTourist = roomDto.countTourist
+                    )
+                )
+            }
+            bodyForDataLoading { result }
         }
     }
 
