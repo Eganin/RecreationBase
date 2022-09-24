@@ -8,6 +8,7 @@ import com.example.recreationbase.R
 import com.example.recreationbase.presentaion.ActionButton
 import com.example.recreationbase.presentaion.Event
 import com.example.recreationbase.presentaion.MainViewModel
+import com.example.recreationbase.presentaion.views.DataVerticalCell
 import com.google.accompanist.flowlayout.FlowColumn
 
 @Composable
@@ -27,7 +28,14 @@ fun RoomsView(viewModel: MainViewModel, navController: NavController) {
                 state.rooms.size / 2
             }
             repeat(repeatCount) { index ->
-                RoomCell(roomInfo = state.rooms[index])
+                val roomInfo = state.rooms[index]
+                DataVerticalCell(
+                    imageLink = roomInfo.image?.lg,
+                    title = "До ${roomInfo.countTourist} гостей",
+                    subtitle = roomInfo.title ?: "",
+                    price = roomInfo.price + roomInfo.currencyPrice,
+                    discount = roomInfo.discount
+                )
             }
         }
         ActionButton(
