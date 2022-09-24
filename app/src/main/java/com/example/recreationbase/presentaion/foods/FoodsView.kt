@@ -1,9 +1,6 @@
 package com.example.recreationbase.presentaion.foods
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -13,6 +10,7 @@ import com.example.recreationbase.R
 import com.example.recreationbase.presentaion.ActionButton
 import com.example.recreationbase.presentaion.Event
 import com.example.recreationbase.presentaion.MainViewModel
+import com.example.recreationbase.presentaion.views.DataHorizontalCell
 import com.google.accompanist.flowlayout.FlowColumn
 
 @Composable
@@ -33,16 +31,24 @@ fun FoodsView(viewModel: MainViewModel, navController: NavController) {
             }
             repeat(repeatCount) { index ->
                 if (index % 2 == 0) {
+                    Spacer(modifier = Modifier.height(8.dp))
                     Row(modifier = Modifier.fillMaxWidth()) {
-                        FoodCell(
-                            foodInfo = state.foods[index],
-                            modifier = Modifier.padding(start = 16.dp, top = 16.dp)
+                        val foodInfo = state.foods[index]
+                        val nextFoodInfo = state.foods[index + 1]
+                        DataHorizontalCell(
+                            imageLink = foodInfo.image?.lg,
+                            title = foodInfo.title ?: "",
+                            subtitle = foodInfo.subtitle ?: "",
+                            modifier = Modifier.padding(start = 16.dp)
                         )
-                        FoodCell(
-                            foodInfo = state.foods[index + 1],
-                            modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp)
+                        DataHorizontalCell(
+                            imageLink = nextFoodInfo.image?.lg,
+                            title = nextFoodInfo.title ?: "",
+                            subtitle = nextFoodInfo.subtitle ?: "",
+                            modifier = Modifier.padding(start = 16.dp, end = 16.dp)
                         )
                     }
+                    Spacer(modifier = Modifier.height(8.dp))
                 }
             }
         }

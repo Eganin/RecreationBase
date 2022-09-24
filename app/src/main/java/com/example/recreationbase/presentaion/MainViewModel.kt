@@ -46,9 +46,6 @@ class MainViewModel @Inject constructor(
             repository.getFunForMainPage().collect { result ->
                 wrapperForHandlerResource(result = result) {
                     state = state.copy(funs = it)
-                    it.forEach {
-                        Log.d("EEE",it.toString())
-                    }
                 }
             }
         }

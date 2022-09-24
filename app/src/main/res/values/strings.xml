@@ -7,4 +7,7 @@
     <string name="closing_text_label">Скрыть</string>
     <string name="rooms_label">Домики и номера</string>
     <string name="night_price_label">/ночь</string>
+    <string name="fun_label">Развлечения</string>
+    <string name="open_all_label">Открыть всё</string>
+    <string name="close_label">Скрыть</string>
 </resources>

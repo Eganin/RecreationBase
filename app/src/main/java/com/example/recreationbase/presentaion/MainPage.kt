@@ -11,16 +11,17 @@ import androidx.navigation.NavController
 import com.example.recreationbase.R
 import com.example.recreationbase.presentaion.blogs.BlogView
 import com.example.recreationbase.presentaion.foods.FoodsView
+import com.example.recreationbase.presentaion.funs.FunView
 import com.example.recreationbase.presentaion.rooms.RoomsView
+import com.example.recreationbase.presentaion.views.Header
 
 @Composable
-fun MainPage(viewModel : MainViewModel, navController: NavController) {
-    viewModel.onEvent(event = Event.LoadFun)
+fun MainPage(viewModel: MainViewModel, navController: NavController) {
     LazyColumn(
         modifier = Modifier
             .fillMaxWidth()
             .padding(bottom = 70.dp)
-    ){
+    ) {
         item {
             Header(text = stringResource(R.string.main_label))
         }
@@ -38,6 +39,9 @@ fun MainPage(viewModel : MainViewModel, navController: NavController) {
         }
         item {
             RoomsView(viewModel = viewModel, navController = navController)
+        }
+        item {
+            FunView(viewModel = viewModel, navController = navController)
         }
         item {
             Header(text = stringResource(R.string.blog_title))
