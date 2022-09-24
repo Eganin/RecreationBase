@@ -8,6 +8,6 @@ data class FoodDetailDto(
     @SerialName("success") var success: Boolean? = null,
     @SerialName("error") var error: String? = null,
     @SerialName("time") var time: String? = null,
-    @SerialName("data") var data: FoodDetailData? = FoodDetailData()
+    @SerialName("data") var data: FoodDetailDataDto? = FoodDetailDataDto()
 
 )

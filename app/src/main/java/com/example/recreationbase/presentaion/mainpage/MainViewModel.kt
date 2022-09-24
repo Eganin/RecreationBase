@@ -24,6 +24,23 @@ class MainViewModel @Inject constructor(
     private val repository: RecreationBaseRepository
 ) : ViewModel() {
 
+    init {
+        viewModelScope.launch {
+            repository.getFoodDetailInfo(id = 115).collect { result ->
+                wrapperForHandlerResource(
+                    result = result,
+                    onStateChangeSuccess = {
+                        Log.d("EEE", it.toString())
+                    },
+                    onLoading = { placeState = placeState.copy(isLoading = true) },
+                    onError = {
+                        placeState = placeState.copy(isLoading = false, error = result.message)
+                    }
+                )
+            }
+        }
+    }
+
     var placeState by mutableStateOf(PlaceState())
         private set
     var blogState by mutableStateOf(BlogState())

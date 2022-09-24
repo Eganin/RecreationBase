@@ -6,6 +6,7 @@ import com.example.recreationbase.data.remote.dto.`fun`.FunDataDto
 import com.example.recreationbase.data.remote.dto.funchild.FunChildDataDto
 import com.example.recreationbase.data.remote.dto.places.PlaceDataDto
 import com.example.recreationbase.domain.model.BlogData
+import com.example.recreationbase.domain.model.FoodDetailData
 import com.example.recreationbase.domain.model.RoomData
 import com.example.recreationbase.domain.model.TourData
 import com.example.recreationbase.util.Resource
@@ -28,4 +29,6 @@ interface RecreationBaseRepository {
     suspend fun getToursForMainPage() : Flow<Resource<List<TourData>>>
 
     suspend fun getPlacesForMainPage() : Flow<Resource<List<PlaceDataDto>>>
+
+    suspend fun getFoodDetailInfo(id : Int) : Flow<Resource<FoodDetailData>>
 }

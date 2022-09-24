@@ -3,6 +3,7 @@ package com.example.recreationbase.data.remote
 import com.example.recreationbase.data.remote.dto.blog.BlogsDto
 import com.example.recreationbase.data.remote.dto.blogdetail.BlogDetailDto
 import com.example.recreationbase.data.remote.dto.food.FoodDataDto
+import com.example.recreationbase.data.remote.dto.fooddetail.FoodDetailDto
 import com.example.recreationbase.data.remote.dto.`fun`.FunDto
 import com.example.recreationbase.data.remote.dto.funchild.FunChildDto
 import com.example.recreationbase.data.remote.dto.places.PlacesDto
@@ -38,6 +39,11 @@ interface RecreationBaseApi {
 
     @GET("api/base-app/fun?id=117&type=place")
     suspend fun getPlaces() : PlacesDto
+
+    @GET("api/base-app/get-object?")
+    suspend fun getFoodDetail(
+        @Query("id") id: Int
+    ) : FoodDetailDto
 
     companion object{
         const val BASE_URL = "https://rsttur.ru/"

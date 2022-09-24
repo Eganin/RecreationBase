@@ -1,6 +1,7 @@
 package com.example.recreationbase.data.repository
 
 import com.example.recreationbase.data.mapper.toBlogData
+import com.example.recreationbase.data.mapper.toFoodDetailData
 import com.example.recreationbase.data.mapper.toRoomData
 import com.example.recreationbase.data.mapper.toTourData
 import com.example.recreationbase.data.remote.RecreationBaseApi
@@ -10,6 +11,7 @@ import com.example.recreationbase.data.remote.dto.`fun`.FunDataDto
 import com.example.recreationbase.data.remote.dto.funchild.FunChildDataDto
 import com.example.recreationbase.data.remote.dto.places.PlaceDataDto
 import com.example.recreationbase.domain.model.BlogData
+import com.example.recreationbase.domain.model.FoodDetailData
 import com.example.recreationbase.domain.model.RoomData
 import com.example.recreationbase.domain.model.TourData
 import com.example.recreationbase.domain.repository.RecreationBaseRepository
@@ -72,6 +74,13 @@ class RecreationBaseRepositoryImpl @Inject constructor(
             bodyForDataLoading { api.getPlaces().data }
         }
 
+    override suspend fun getFoodDetailInfo(id: Int): Flow<Resource<FoodDetailData>> =
+        flow {
+            val response = api.getFoodDetail(id = id).data?.toFoodDetailData()
+            response?.let {
+                bodyForDataLoading { it }
+            }
+        }
 
     private suspend fun <T> FlowCollector<Resource<T>>.bodyForDataLoading(blockResponse: suspend () -> T) {
         emit(Resource.Loading(isLoading = true))

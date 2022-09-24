@@ -3,7 +3,7 @@ package com.example.recreationbase.data.remote.dto.fooddetail
 import kotlinx.serialization.SerialName
 
 @kotlinx.serialization.Serializable
-data class FoodDetailContact(
+data class FoodDetailContactDto(
     @SerialName("phone") var phone: String? = null,
     @SerialName("email") var email: String? = null,
     @SerialName("vk") var vk: String? = null,
