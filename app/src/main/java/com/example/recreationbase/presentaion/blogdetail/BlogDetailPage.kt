@@ -12,8 +12,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.recreationbase.presentaion.blogdetail.views.DetailBlogTitle
 import com.example.recreationbase.presentaion.blogdetail.views.ImageTop
-import com.example.recreationbase.ui.theme.AppTheme
-import com.example.recreationbase.ui.theme.Typography
+import com.example.recreationbase.presentaion.ui.theme.AppTheme
+import com.example.recreationbase.presentaion.ui.theme.Typography
 
 @Composable
 fun BlogDetailPage(id: Int, viewModel: BlogDetailViewModel, navController: NavController) {

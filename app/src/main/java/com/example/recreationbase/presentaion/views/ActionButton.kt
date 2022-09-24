@@ -1,4 +1,4 @@
-package com.example.recreationbase.presentaion
+package com.example.recreationbase.presentaion.views
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,8 +12,8 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.example.recreationbase.ui.theme.AppTheme
-import com.example.recreationbase.ui.theme.Typography
+import com.example.recreationbase.presentaion.ui.theme.AppTheme
+import com.example.recreationbase.presentaion.ui.theme.Typography
 
 @Composable
 fun ActionButton(openingText: String, closingText: String, onClick: () -> Unit) {
@@ -31,7 +31,7 @@ fun ActionButton(openingText: String, closingText: String, onClick: () -> Unit) 
         border = BorderStroke(1.dp, AppTheme.colors.tintColor),
         colors = ButtonDefaults.buttonColors(
             backgroundColor = AppTheme.colors.secondaryBackground.copy(
-                alpha = 0.1f
+                alpha = 0.2f
             )
         )
     ) {

@@ -12,7 +12,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.example.recreationbase.R
-import com.example.recreationbase.ui.theme.AppTheme
+import com.example.recreationbase.presentaion.ui.theme.AppTheme
 import com.squareup.picasso.Picasso
 
 @Composable

@@ -1,6 +1,8 @@
 package com.example.recreationbase.data.repository
 
 import com.example.recreationbase.data.mapper.toBlogData
+import com.example.recreationbase.data.mapper.toRoomData
+import com.example.recreationbase.data.mapper.toTourData
 import com.example.recreationbase.data.remote.RecreationBaseApi
 import com.example.recreationbase.data.remote.dto.blogdetail.BlogDetailDataDto
 import com.example.recreationbase.data.remote.dto.food.FoodInfo
@@ -22,94 +24,54 @@ import javax.inject.Inject
 class RecreationBaseRepositoryImpl @Inject constructor(
     private val api: RecreationBaseApi
 ) : RecreationBaseRepository {
-    override suspend fun getBlogsForMainPage(): Flow<Resource<List<BlogData>>> {
-        return flow {
-            val response = api.getBlogs().data.map { it.toBlogData() }
-            bodyForDataLoading { response }
+    override suspend fun getBlogsForMainPage(): Flow<Resource<List<BlogData>>> =
+        flow {
+            bodyForDataLoading { api.getBlogs().data.map { it.toBlogData() } }
         }
-    }
 
-    override suspend fun getDetailInfoBlog(blogId: Int): Flow<Resource<BlogDetailDataDto>> {
-        return flow {
-            val response = api.getDetailBlogInfo(blogId = blogId).data?.apply {
-                val arrDate = date?.split("T")?.get(0)?.split("-")
-                date = "${arrDate?.get(2)}.${arrDate?.get(1)}.${arrDate?.get(0)}"
-            }
+
+    override suspend fun getDetailInfoBlog(blogId: Int): Flow<Resource<BlogDetailDataDto>> =
+        flow {
+            val response = api.getDetailBlogInfo(blogId = blogId).data?.toBlogData()
             response?.let {
                 bodyForDataLoading { it }
             }
         }
-    }
 
-    override suspend fun getFoodsForMainPage(): Flow<Resource<List<FoodInfo>>> {
-        return flow {
-            val response = api.getFoods().data
-            bodyForDataLoading { response }
+
+    override suspend fun getFoodsForMainPage(): Flow<Resource<List<FoodInfo>>> =
+        flow {
+            bodyForDataLoading { api.getFoods().data }
         }
-    }
 
-    override suspend fun getRoomsForMainPage(): Flow<Resource<List<RoomData>>> {
-        return flow {
-            val response = api.getRooms().data
-            val result = mutableListOf<RoomData>()
-            response.forEach { roomDto ->
-                result.add(
-                    RoomData(
-                        id = roomDto.id,
-                        image = roomDto.image,
-                        title = roomDto.title,
-                        price = roomDto.price?.price.toString(),
-                        currencyPrice = roomDto.price?.currency,
-                        countTourist = roomDto.countTourist,
-                        discount = roomDto.price?.discount
-                    )
-                )
-            }
-            bodyForDataLoading { result }
+
+    override suspend fun getRoomsForMainPage(): Flow<Resource<List<RoomData>>> =
+        flow {
+            bodyForDataLoading { api.getRooms().data.map { it.toRoomData() } }
         }
-    }
 
-    override suspend fun getFunForMainPage(): Flow<Resource<List<FunDataDto>>> {
-        return flow {
-            val response = api.getFun().data
-            bodyForDataLoading { response }
+    override suspend fun getFunForMainPage(): Flow<Resource<List<FunDataDto>>> =
+        flow {
+            bodyForDataLoading { api.getFun().data }
         }
-    }
 
-    override suspend fun getFunChildForMainPage(): Flow<Resource<List<FunChildDataDto>>> {
-        return flow {
-            val response = api.getFunForChilds().data
-            bodyForDataLoading { response }
+    override suspend fun getFunChildForMainPage(): Flow<Resource<List<FunChildDataDto>>> =
+        flow {
+            bodyForDataLoading { api.getFunForChilds().data }
         }
-    }
 
-    override suspend fun getToursForMainPage(): Flow<Resource<List<TourData>>> {
-        return flow {
-            val response = api.getTours().data
-            val result = mutableListOf<TourData>()
-            response.forEach {
-                result.add(
-                    TourData(
-                        id = it.id,
-                        image = it.image,
-                        title = it.title,
-                        price = it.price?.price,
-                        currency = it.price?.currency,
-                        location = it.location
-                    )
-                )
-            }
 
-            bodyForDataLoading { result }
+    override suspend fun getToursForMainPage(): Flow<Resource<List<TourData>>> =
+        flow {
+            bodyForDataLoading { api.getTours().data.map { it.toTourData() } }
         }
-    }
 
-    override suspend fun getPlacesForMainPage(): Flow<Resource<List<PlaceDataDto>>> {
-        return flow {
-            val response = api.getPlaces().data
-            bodyForDataLoading { response }
+
+    override suspend fun getPlacesForMainPage(): Flow<Resource<List<PlaceDataDto>>> =
+        flow {
+            bodyForDataLoading { api.getPlaces().data }
         }
-    }
+
 
     private suspend fun <T> FlowCollector<Resource<T>>.bodyForDataLoading(blockResponse: suspend () -> T) {
         emit(Resource.Loading(isLoading = true))

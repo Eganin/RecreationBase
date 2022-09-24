@@ -10,7 +10,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.recreationbase.R
-import com.example.recreationbase.ui.theme.AppTheme
+import com.example.recreationbase.presentaion.ui.theme.AppTheme
 
 @Composable
 fun BottomBar(navController: NavController) {

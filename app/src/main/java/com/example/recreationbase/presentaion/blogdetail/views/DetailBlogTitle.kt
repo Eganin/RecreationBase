@@ -9,8 +9,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.example.recreationbase.ui.theme.AppTheme
-import com.example.recreationbase.ui.theme.Typography
+import com.example.recreationbase.presentaion.ui.theme.AppTheme
+import com.example.recreationbase.presentaion.ui.theme.Typography
 
 @Composable
 fun DetailBlogTitle(date: String, subtitle: String) {
