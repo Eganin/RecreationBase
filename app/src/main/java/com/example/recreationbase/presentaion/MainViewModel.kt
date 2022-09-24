@@ -41,6 +41,23 @@ class MainViewModel @Inject constructor(
             is Event.LoadFunChild -> {
                 downloadChildFun()
             }
+
+            is Event.LoadTours ->{
+                downloadTours()
+            }
+        }
+    }
+
+    private fun downloadTours(){
+        viewModelScope.launch {
+            repository.getToursForMainPage().collect{result ->
+                wrapperForHandlerResource(result = result){
+                    state=state.copy()
+                    it.forEach {
+                        Log.d("EEE",it.toString())
+                    }
+                }
+            }
         }
     }
 

@@ -6,4 +6,5 @@ sealed class Event{
     object LoadRooms : Event()
     object LoadFun : Event()
     object LoadFunChild : Event()
+    object LoadTours : Event()
 }

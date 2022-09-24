@@ -8,6 +8,7 @@ import com.example.recreationbase.data.remote.dto.`fun`.FunDataDto
 import com.example.recreationbase.data.remote.dto.funchild.FunChildDataDto
 import com.example.recreationbase.domain.model.BlogData
 import com.example.recreationbase.domain.model.RoomData
+import com.example.recreationbase.domain.model.TourData
 import com.example.recreationbase.domain.repository.RecreationBaseRepository
 import com.example.recreationbase.util.Resource
 import kotlinx.coroutines.flow.Flow
@@ -78,6 +79,26 @@ class RecreationBaseRepositoryImpl @Inject constructor(
         return flow {
             val response = api.getFunForChilds().data
             bodyForDataLoading { response }
+        }
+    }
+
+    override suspend fun getToursForMainPage(): Flow<Resource<List<TourData>>> {
+        return flow {
+            val response = api.getTours().data
+            val result = mutableListOf<TourData>()
+            response.forEach {
+                result.add(
+                    TourData(
+                        id = it.id,
+                        image = it.image,
+                        title = it.title,
+                        price = it.price?.price,
+                        currency = it.price?.currency
+                    )
+                )
+            }
+
+            bodyForDataLoading { result }
         }
     }
 

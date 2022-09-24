@@ -6,6 +6,7 @@ import com.example.recreationbase.data.remote.dto.`fun`.FunDataDto
 import com.example.recreationbase.data.remote.dto.funchild.FunChildDataDto
 import com.example.recreationbase.domain.model.BlogData
 import com.example.recreationbase.domain.model.RoomData
+import com.example.recreationbase.domain.model.TourData
 import com.example.recreationbase.util.Resource
 import kotlinx.coroutines.flow.Flow
 
@@ -22,4 +23,6 @@ interface RecreationBaseRepository {
     suspend fun getFunForMainPage() : Flow<Resource<List<FunDataDto>>>
 
     suspend fun getFunChildForMainPage() : Flow<Resource<List<FunChildDataDto>>>
+
+    suspend fun getToursForMainPage() : Flow<Resource<List<TourData>>>
 }

@@ -7,5 +7,5 @@ data class ToursDto(
     @SerialName("success") var success: Boolean? = null,
     @SerialName("error") var error: String? = null,
     @SerialName("time") var time: String? = null,
-    @SerialName("data") var data: ArrayList<TourDataDto> = arrayListOf()
+    @SerialName("data") var data: List<TourDataDto> = emptyList()
 )

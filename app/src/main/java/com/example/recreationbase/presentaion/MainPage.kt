@@ -18,7 +18,7 @@ import com.example.recreationbase.presentaion.views.Header
 
 @Composable
 fun MainPage(viewModel: MainViewModel, navController: NavController) {
-    viewModel.onEvent(event = Event.LoadFunChild)
+    viewModel.onEvent(event = Event.LoadTours)
     LazyColumn(
         modifier = Modifier
             .fillMaxWidth()
