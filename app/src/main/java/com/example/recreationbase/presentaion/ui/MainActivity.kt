@@ -18,6 +18,8 @@ import com.example.recreationbase.presentaion.mainpage.MainPage
 import com.example.recreationbase.presentaion.mainpage.MainViewModel
 import com.example.recreationbase.presentaion.blogdetail.BlogDetailPage
 import com.example.recreationbase.presentaion.blogdetail.BlogDetailViewModel
+import com.example.recreationbase.presentaion.fooddetail.FoodDetailPage
+import com.example.recreationbase.presentaion.fooddetail.FoodDetailViewModel
 import com.example.recreationbase.presentaion.views.BottomBar
 import com.example.recreationbase.presentaion.views.DestinationPage
 import com.example.recreationbase.presentaion.ui.theme.AppTheme
@@ -30,6 +32,8 @@ class MainActivity : ComponentActivity() {
 
     private val mainViewModel: MainViewModel by viewModels()
     private val blogDetailViewModel: BlogDetailViewModel by viewModels()
+    private val foodDetailViewModel: FoodDetailViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -56,7 +60,9 @@ class MainActivity : ComponentActivity() {
                         NavHost(
                             navController = navController,
                             startDestination = DestinationPage.MAIN.name,
-                            modifier = Modifier.fillMaxSize().background(AppTheme.colors.primaryBackground)
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .background(AppTheme.colors.primaryBackground)
                         ) {
                             composable("BlogDetail") { navBackStackEntry ->
                                 val id =
@@ -72,8 +78,18 @@ class MainActivity : ComponentActivity() {
                                 }
                             }
 
-                            composable("FoodDetail"){navBackStackEntry ->
-
+                            composable("FoodDetail") { navBackStackEntry ->
+                                val id =
+                                    navController.previousBackStackEntry?.savedStateHandle?.get<Int>(
+                                        "ID_KEY_FOOD"
+                                    )
+                                id?.let {
+                                    FoodDetailPage(
+                                        viewModel = foodDetailViewModel,
+                                        id = id,
+                                        navController = navController
+                                    )
+                                }
                             }
 
                             composable(DestinationPage.MAIN.name) {

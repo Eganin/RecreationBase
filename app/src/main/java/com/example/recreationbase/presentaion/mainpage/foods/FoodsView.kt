@@ -1,6 +1,7 @@
 package com.example.recreationbase.presentaion.mainpage.foods
 
 import android.util.Log
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.MaterialTheme
@@ -36,13 +37,33 @@ fun FoodsView(viewModel: MainViewModel, navController: NavController) {
                 imageLink = foodInfo.image?.lg,
                 title = foodInfo.title ?: "",
                 subtitle = foodInfo.subtitle ?: "",
-                modifier = Modifier.padding(start = 16.dp)
+                modifier = Modifier
+                    .padding(start = 16.dp)
+                    .clickable {
+                        with(navController) {
+                            currentBackStackEntry?.savedStateHandle?.set(
+                                key = "ID_KEY_FOOD",
+                                value = foodInfo.id
+                            )
+                            navigate("FoodDetail")
+                        }
+                    }
             )
             DataHorizontalCell(
                 imageLink = nextFoodInfo.image?.lg,
                 title = nextFoodInfo.title ?: "",
                 subtitle = nextFoodInfo.subtitle ?: "",
-                modifier = Modifier.padding(start = 16.dp, end = 16.dp)
+                modifier = Modifier
+                    .padding(start = 16.dp, end = 16.dp)
+                    .clickable {
+                        with(navController) {
+                            currentBackStackEntry?.savedStateHandle?.set(
+                                key = "ID_KEY_FOOD",
+                                value = nextFoodInfo.id
+                            )
+                            navigate("FoodDetail")
+                        }
+                    }
             )
         }
         Spacer(modifier = Modifier.height(8.dp))
