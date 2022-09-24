@@ -3,4 +3,5 @@
     <string name="blog_title">Блог</string>
     <string name="food_title">Питание</string>
     <string name="main_label">Главная</string>
+    <string name="show_all_label">Показать всё</string>
 </resources>
