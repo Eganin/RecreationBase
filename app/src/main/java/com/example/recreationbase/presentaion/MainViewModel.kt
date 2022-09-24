@@ -34,6 +34,23 @@ class MainViewModel @Inject constructor(
             is Event.LoadRooms -> {
                 downloadRooms()
             }
+
+            is Event.LoadFun -> {
+                downloadFun()
+            }
+        }
+    }
+
+    private fun downloadFun() {
+        viewModelScope.launch {
+            repository.getFunForMainPage().collect { result ->
+                wrapperForHandlerResource(result = result) {
+                    state = state.copy(funs = it)
+                    it.forEach {
+                        Log.d("EEE",it.toString())
+                    }
+                }
+            }
         }
     }
 

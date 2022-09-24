@@ -15,6 +15,7 @@ import com.example.recreationbase.presentaion.rooms.RoomsView
 
 @Composable
 fun MainPage(viewModel : MainViewModel, navController: NavController) {
+    viewModel.onEvent(event = Event.LoadFun)
     LazyColumn(
         modifier = Modifier
             .fillMaxWidth()

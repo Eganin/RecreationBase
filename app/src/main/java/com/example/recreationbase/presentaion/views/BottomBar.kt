@@ -1,4 +1,4 @@
-package com.example.recreationbase.ui
+package com.example.recreationbase.presentaion.views
 
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem

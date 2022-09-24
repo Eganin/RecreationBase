@@ -19,6 +19,8 @@ import com.example.recreationbase.presentaion.MainPage
 import com.example.recreationbase.presentaion.MainViewModel
 import com.example.recreationbase.presentaion.blogdetail.BlogDetailPage
 import com.example.recreationbase.presentaion.blogdetail.BlogDetailViewModel
+import com.example.recreationbase.presentaion.views.BottomBar
+import com.example.recreationbase.presentaion.views.DestinationPage
 import com.example.recreationbase.ui.theme.AppTheme
 import com.example.recreationbase.ui.theme.RecreationBaseTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController

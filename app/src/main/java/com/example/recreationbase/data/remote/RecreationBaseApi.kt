@@ -3,6 +3,7 @@ package com.example.recreationbase.data.remote
 import com.example.recreationbase.data.remote.dto.blog.BlogsDto
 import com.example.recreationbase.data.remote.dto.blogdetail.BlogDetailDto
 import com.example.recreationbase.data.remote.dto.food.FoodDataDto
+import com.example.recreationbase.data.remote.dto.`fun`.FunDto
 import com.example.recreationbase.data.remote.dto.rooms.RoomsDto
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -24,7 +25,7 @@ interface RecreationBaseApi {
     suspend fun getRooms() : RoomsDto
 
     @GET("api/base-app/fun?id=117&type=fun")
-    suspend fun getFun()
+    suspend fun getFun(): FunDto
 
     @GET("api/base-app/fun?id=117&type=child")
     suspend fun getFunForChilds()
