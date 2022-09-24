@@ -21,7 +21,6 @@ fun PlaceCell(placeData: PlaceDataDto) {
             .height(96.dp)
             .padding(start = 16.dp, top = 16.dp)
             .clip(RoundedCornerShape(10.dp))
-            .background(AppTheme.colors.cardBackground)
 
     ) {
         DataVerticalCell(
@@ -30,7 +29,7 @@ fun PlaceCell(placeData: PlaceDataDto) {
             subtitle = placeData.subtitle ?: "",
             modifier = Modifier
                 .size(80.dp)
-
+                .background(AppTheme.colors.cardBackground)
         )
     }
 }

@@ -19,7 +19,7 @@ fun DataVerticalCell(
     discount: String? = null,
     modifier: Modifier? = null,
 ) {
-    Row(modifier = Modifier.fillMaxWidth()) {
+    Row(modifier = modifier ?:Modifier.fillMaxWidth()) {
         AndroidView(
             factory = { context ->
                 val view =

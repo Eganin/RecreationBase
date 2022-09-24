@@ -27,7 +27,7 @@ fun ImageTop(linkImage: String, onClick: () -> Unit) {
                 Picasso.get().load(linkImage).into(imageView)
                 view
             },
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxWidth().height(304.dp),
             update = { view ->
                 // Update the view
                 val imageView = view.findViewById<ImageView>(R.id.photo_blog_detail)
