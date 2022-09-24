@@ -17,7 +17,8 @@ fun DataVerticalCell(
     title: String,
     subtitle: String,
     price: String? = null,
-    discount: String? = null
+    discount: String? = null,
+    modifier: Modifier?=null,
 ) {
     Row(modifier = Modifier.fillMaxWidth()) {
         AndroidView(
@@ -28,7 +29,7 @@ fun DataVerticalCell(
                 Picasso.get().load(imageLink).into(imageView)
                 view
             },
-            modifier = Modifier
+            modifier = modifier?: Modifier
                 .size(130.dp)
                 .padding(16.dp),
             update = { view ->

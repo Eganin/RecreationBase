@@ -12,4 +12,5 @@
     <string name="close_label">Скрыть</string>
     <string name="fun_for_child_label">Для детей</string>
     <string name="tours_label">Туры</string>
+    <string name="places_label">Места</string>
 </resources>

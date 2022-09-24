@@ -57,9 +57,6 @@ class MainViewModel @Inject constructor(
             repository.getPlacesForMainPage().collect { result ->
                 wrapperForHandlerResource(result = result) {
                     state = state.copy(places = it)
-                    it.forEach {
-                        Log.d("EEE", it.toString())
-                    }
                 }
             }
         }

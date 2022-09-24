@@ -14,7 +14,7 @@ val baseLightPalette = AppColors(
     secondaryText = Color(0xFF959595),
     tintColor = Color(0XFF6CAEFC),
     errorColor = Color(0xFFFF3377),
-    cardBackground = Color(0xFFFBFEFC)
+    cardBackground = Color(0xD4FFFFFF)
 )
 
 val baseDarkPalette = AppColors(

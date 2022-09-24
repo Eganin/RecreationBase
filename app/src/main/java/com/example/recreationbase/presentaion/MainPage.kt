@@ -13,13 +13,13 @@ import com.example.recreationbase.presentaion.blogs.BlogView
 import com.example.recreationbase.presentaion.foods.FoodsView
 import com.example.recreationbase.presentaion.funchild.FunChildView
 import com.example.recreationbase.presentaion.funs.FunView
+import com.example.recreationbase.presentaion.places.PlaceView
 import com.example.recreationbase.presentaion.rooms.RoomsView
 import com.example.recreationbase.presentaion.tours.ToursView
 import com.example.recreationbase.presentaion.views.Header
 
 @Composable
 fun MainPage(viewModel: MainViewModel, navController: NavController) {
-    viewModel.onEvent(event = Event.LoadPlaces)
     LazyColumn(
         modifier = Modifier
             .fillMaxWidth()
@@ -58,10 +58,11 @@ fun MainPage(viewModel: MainViewModel, navController: NavController) {
         item {
             BlogView(viewModel = viewModel, navController = navController)
         }
-
         item {
             ToursView(viewModel = viewModel, navController = navController)
         }
-
+        item {
+            PlaceView(viewModel = viewModel, navController = navController)
+        }
     }
 }
