@@ -15,10 +15,15 @@ import com.example.recreationbase.presentaion.foods.FoodsView
 @Composable
 fun MainPage(viewModel : MainViewModel, navController: NavController) {
     LazyColumn(
-        modifier = Modifier.fillMaxWidth().padding(bottom = 70.dp)
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(bottom = 70.dp)
     ){
         item {
             Header(text = stringResource(R.string.main_label))
+        }
+        item {
+            HeaderInfo()
         }
         item {
             Header(text = stringResource(R.string.food_title))

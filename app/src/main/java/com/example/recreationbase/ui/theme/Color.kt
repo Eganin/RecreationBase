@@ -2,6 +2,9 @@ package com.example.recreationbase.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
+val Orange = Color(0xFFFC6A00)
+val Blue = Color(0xFF4983C9)
+val Gray = Color(0xFF404B58)
 
 val baseLightPalette = AppColors(
     primaryBackground = Color(0xFFFFFFFF),
