@@ -5,6 +5,7 @@ import com.example.recreationbase.data.remote.dto.blogdetail.BlogDetailDto
 import com.example.recreationbase.data.remote.dto.food.FoodDataDto
 import com.example.recreationbase.data.remote.dto.`fun`.FunDto
 import com.example.recreationbase.data.remote.dto.funchild.FunChildDto
+import com.example.recreationbase.data.remote.dto.places.PlacesDto
 import com.example.recreationbase.data.remote.dto.rooms.RoomsDto
 import com.example.recreationbase.data.remote.dto.tours.ToursDto
 import retrofit2.http.GET
@@ -36,7 +37,7 @@ interface RecreationBaseApi {
     suspend fun getTours() : ToursDto
 
     @GET("api/base-app/fun?id=117&type=place")
-    suspend fun getPlace()
+    suspend fun getPlaces() : PlacesDto
 
     companion object{
         const val BASE_URL = "https://rsttur.ru/"

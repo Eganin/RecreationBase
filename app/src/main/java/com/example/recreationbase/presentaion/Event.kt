@@ -7,4 +7,5 @@ sealed class Event{
     object LoadFun : Event()
     object LoadFunChild : Event()
     object LoadTours : Event()
+    object LoadPlaces : Event()
 }
