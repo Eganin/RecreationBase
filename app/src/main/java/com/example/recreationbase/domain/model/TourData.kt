@@ -7,5 +7,6 @@ data class TourData(
     var image: Image? = Image(),
     var title: String? = null,
     var price: Int? = null,
-    val currency: String? = null
+    val currency: String? = null,
+    val location : String?=null
 )

@@ -52,10 +52,7 @@ class MainViewModel @Inject constructor(
         viewModelScope.launch {
             repository.getToursForMainPage().collect{result ->
                 wrapperForHandlerResource(result = result){
-                    state=state.copy()
-                    it.forEach {
-                        Log.d("EEE",it.toString())
-                    }
+                    state=state.copy(tours = it)
                 }
             }
         }

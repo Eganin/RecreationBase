@@ -11,6 +11,7 @@ data class AppColors(
     val secondaryBackground: Color,
     val tintColor: Color,
     val errorColor: Color,
+    val cardBackground : Color
 )
 
 object AppTheme{

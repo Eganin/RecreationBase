@@ -93,7 +93,8 @@ class RecreationBaseRepositoryImpl @Inject constructor(
                         image = it.image,
                         title = it.title,
                         price = it.price?.price,
-                        currency = it.price?.currency
+                        currency = it.price?.currency,
+                        location = it.location
                     )
                 )
             }

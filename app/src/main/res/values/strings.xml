@@ -11,4 +11,5 @@
     <string name="open_all_label">Открыть всё</string>
     <string name="close_label">Скрыть</string>
     <string name="fun_for_child_label">Для детей</string>
+    <string name="tours_label">Туры</string>
 </resources>

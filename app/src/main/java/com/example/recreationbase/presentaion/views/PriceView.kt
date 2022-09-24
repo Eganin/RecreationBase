@@ -14,7 +14,7 @@ import com.example.recreationbase.ui.theme.Red
 import com.example.recreationbase.ui.theme.Typography
 
 @Composable
-fun PriceView(price: String, discount: String? = null) {
+fun PriceView(price: String, discount: String? = null,isRoomData : Boolean=true) {
     if (discount == null) {
         Text(
             text = price,
@@ -23,14 +23,16 @@ fun PriceView(price: String, discount: String? = null) {
                 fontWeight = FontWeight.Bold
             )
         )
-        Text(
-            text = stringResource(R.string.night_price_label),
-            style = Typography.body1.copy(
-                color = AppTheme.colors.primaryText,
-                fontWeight = FontWeight.Bold
-            ),
-            modifier = Modifier.padding(start = 2.dp)
-        )
+        if(isRoomData){
+            Text(
+                text = stringResource(R.string.night_price_label),
+                style = Typography.body1.copy(
+                    color = AppTheme.colors.primaryText,
+                    fontWeight = FontWeight.Bold
+                ),
+                modifier = Modifier.padding(start = 2.dp)
+            )
+        }
     } else {
         Text(
             text = price, style = Typography.body1.copy(
