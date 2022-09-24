@@ -9,7 +9,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.example.recreationbase.R
 import com.example.recreationbase.presentaion.PriceView
-import com.example.recreationbase.presentaion.TextViewCells
 import com.squareup.picasso.Picasso
 
 @Composable
@@ -44,15 +43,17 @@ fun DataVerticalCell(
                 secondLabel = subtitle
             )
             Row(modifier = Modifier.padding(top = 4.dp)) {
-                if(discount== null){
-                    PriceView(
-                        price = price ?:"",
-                    )
-                }else{
-                    PriceView(
-                        price = price ?:"",
-                        discount = discount
-                    )
+                if(price!= null){
+                    if(discount== null){
+                        PriceView(
+                            price = price,
+                        )
+                    }else {
+                        PriceView(
+                            price = price,
+                            discount = discount
+                        )
+                    }
                 }
             }
         }

@@ -9,7 +9,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.recreationbase.domain.repository.RecreationBaseRepository
 import com.example.recreationbase.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -37,6 +36,20 @@ class MainViewModel @Inject constructor(
 
             is Event.LoadFun -> {
                 downloadFun()
+            }
+
+            is Event.LoadFunChild -> {
+                downloadChildFun()
+            }
+        }
+    }
+
+    private fun downloadChildFun() {
+        viewModelScope.launch {
+            repository.getFunChildForMainPage().collect { result ->
+                wrapperForHandlerResource(result = result) {
+                    state = state.copy(childFun = it)
+                }
             }
         }
     }

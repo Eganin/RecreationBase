@@ -5,6 +5,7 @@ import com.example.recreationbase.data.remote.RecreationBaseApi
 import com.example.recreationbase.data.remote.dto.blogdetail.BlogDetailDataDto
 import com.example.recreationbase.data.remote.dto.food.FoodInfo
 import com.example.recreationbase.data.remote.dto.`fun`.FunDataDto
+import com.example.recreationbase.data.remote.dto.funchild.FunChildDataDto
 import com.example.recreationbase.domain.model.BlogData
 import com.example.recreationbase.domain.model.RoomData
 import com.example.recreationbase.domain.repository.RecreationBaseRepository
@@ -69,6 +70,13 @@ class RecreationBaseRepositoryImpl @Inject constructor(
     override suspend fun getFunForMainPage(): Flow<Resource<List<FunDataDto>>> {
         return flow {
             val response = api.getFun().data
+            bodyForDataLoading { response }
+        }
+    }
+
+    override suspend fun getFunChildForMainPage(): Flow<Resource<List<FunChildDataDto>>> {
+        return flow {
+            val response = api.getFunForChilds().data
             bodyForDataLoading { response }
         }
     }

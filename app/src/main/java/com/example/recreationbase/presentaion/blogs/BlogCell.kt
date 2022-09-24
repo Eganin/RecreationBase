@@ -36,7 +36,7 @@ fun BlogCell(data: BlogData, onClick: () -> Unit) {
             Text(
                 text = it,
                 modifier = Modifier
-                    .fillMaxWidth()
+                    .width(328.dp)
                     .padding(top = 16.dp, start = 16.dp, end = 16.dp),
                 style = Typography.body1.copy(color = AppTheme.colors.secondaryText)
             )
@@ -46,7 +46,6 @@ fun BlogCell(data: BlogData, onClick: () -> Unit) {
             Text(
                 text = it,
                 modifier = Modifier
-                    .fillMaxWidth()
                     .width(328.dp)
                     .padding(top = 2.dp, start = 16.dp, end = 16.dp),
                 style = Typography.body1.copy(

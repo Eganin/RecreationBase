@@ -5,4 +5,5 @@ sealed class Event{
     object LoadFoods : Event()
     object LoadRooms : Event()
     object LoadFun : Event()
+    object LoadFunChild : Event()
 }
