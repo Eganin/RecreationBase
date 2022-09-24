@@ -32,6 +32,9 @@ fun MainPage(viewModel : MainViewModel, navController: NavController) {
             FoodsView(viewModel = viewModel, navController = navController)
         }
         item {
+            Header(text = stringResource(R.string.rooms_label))
+        }
+        item {
             Header(text = stringResource(R.string.blog_title))
         }
         item {

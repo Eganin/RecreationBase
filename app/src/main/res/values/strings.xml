@@ -4,4 +4,6 @@
     <string name="food_title">Питание</string>
     <string name="main_label">Главная</string>
     <string name="show_all_label">Показать всё</string>
+    <string name="closing_text_label">Скрыть</string>
+    <string name="rooms_label">Домики и номера</string>
 </resources>

@@ -2,8 +2,7 @@ package com.example.recreationbase.data.repository
 
 import com.example.recreationbase.data.mapper.toBlogData
 import com.example.recreationbase.data.remote.RecreationBaseApi
-import com.example.recreationbase.data.remote.dto.blog.BlogDataDto
-import com.example.recreationbase.data.remote.dto.blogdetail.BlogDetailData
+import com.example.recreationbase.data.remote.dto.blogdetail.BlogDetailDataDto
 import com.example.recreationbase.data.remote.dto.food.FoodInfo
 import com.example.recreationbase.domain.model.BlogData
 import com.example.recreationbase.domain.repository.RecreationBaseRepository
@@ -25,7 +24,7 @@ class RecreationBaseRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getDetailInfoBlog(blogId: Int): Flow<Resource<BlogDetailData>> {
+    override suspend fun getDetailInfoBlog(blogId: Int): Flow<Resource<BlogDetailDataDto>> {
         return flow {
             val response = api.getDetailBlogInfo(blogId = blogId).data?.apply {
                 val arrDate = date?.split("T")?.get(0)?.split("-")

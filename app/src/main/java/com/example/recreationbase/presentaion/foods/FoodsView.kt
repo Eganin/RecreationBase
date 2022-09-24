@@ -6,11 +6,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.recreationbase.R
+import com.example.recreationbase.presentaion.ActionButton
 import com.example.recreationbase.presentaion.Event
 import com.example.recreationbase.presentaion.MainViewModel
-import com.example.recreationbase.presentaion.ShowAllItemsButton
 import com.google.accompanist.flowlayout.FlowColumn
 
 @Composable
@@ -24,10 +26,10 @@ fun FoodsView(viewModel: MainViewModel, navController: NavController) {
     var changeSizeRepeat by remember { mutableStateOf(false) }
     Column {
         FlowColumn {
-            val repeatCount = if(changeSizeRepeat){
+            val repeatCount = if (changeSizeRepeat) {
                 state.foods.size
-            }else{
-                state.foods.size/2
+            } else {
+                state.foods.size / 2
             }
             repeat(repeatCount) { index ->
                 if (index % 2 == 0) {
@@ -44,8 +46,12 @@ fun FoodsView(viewModel: MainViewModel, navController: NavController) {
                 }
             }
         }
-        ShowAllItemsButton(sizeItems = state.foods.size) {
-            changeSizeRepeat=!changeSizeRepeat
+        ActionButton(
+            openingText = stringResource(R.string.show_all_label) + " (${state.foods.size})",
+            closingText = stringResource(R.string.closing_text_label)
+        ) {
+            changeSizeRepeat = !changeSizeRepeat
         }
+
     }
 }
