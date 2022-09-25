@@ -1,4 +1,4 @@
-package com.example.recreationbase.presentaion.fooddetail
+package com.example.recreationbase.presentaion.fooddetailpage
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -17,7 +17,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.recreationbase.R
-import com.example.recreationbase.presentaion.fooddetail.views.*
+import com.example.recreationbase.presentaion.fooddetailpage.views.*
 import com.example.recreationbase.presentaion.mainpage.views.LoaderAndError
 import com.example.recreationbase.presentaion.ui.theme.AppTheme
 import com.example.recreationbase.presentaion.ui.theme.Typography

@@ -1,4 +1,4 @@
-package com.example.recreationbase.presentaion.fooddetail.views
+package com.example.recreationbase.presentaion.fooddetailpage.views
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row

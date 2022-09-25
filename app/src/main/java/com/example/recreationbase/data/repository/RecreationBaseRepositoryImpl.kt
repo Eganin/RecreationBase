@@ -19,6 +19,7 @@ import com.example.recreationbase.util.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.flow
+import kotlinx.serialization.json.JsonDecoder
 import okio.IOException
 import retrofit2.HttpException
 import javax.inject.Inject
@@ -97,11 +98,8 @@ class RecreationBaseRepositoryImpl @Inject constructor(
         }
 
         response?.let {
-            emit(
-                Resource.Success(
-                    data = it
-                )
-            )
+            emit(Resource.Success(data = it))
+
             emit(Resource.Loading(isLoading = false))
         }
     }

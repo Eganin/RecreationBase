@@ -1,4 +1,4 @@
-package com.example.recreationbase.presentaion.fooddetail
+package com.example.recreationbase.presentaion.fooddetailpage
 
 import com.example.recreationbase.domain.model.FoodDetailData
 

@@ -1,4 +1,4 @@
-package com.example.recreationbase.presentaion.blogdetail
+package com.example.recreationbase.presentaion.blogdetailpage
 
 import com.example.recreationbase.data.remote.dto.blogdetail.BlogDetailDataDto
 

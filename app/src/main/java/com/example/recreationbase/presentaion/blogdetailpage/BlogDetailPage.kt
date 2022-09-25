@@ -1,4 +1,4 @@
-package com.example.recreationbase.presentaion.blogdetail
+package com.example.recreationbase.presentaion.blogdetailpage
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,9 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.recreationbase.presentaion.blogdetail.views.DetailBlogTitle
-import com.example.recreationbase.presentaion.blogdetail.views.ImageTop
-import com.example.recreationbase.presentaion.fooddetail.views.FoodDetailImage
+import com.example.recreationbase.presentaion.blogdetailpage.views.DetailBlogTitle
+import com.example.recreationbase.presentaion.blogdetailpage.views.ImageTop
 import com.example.recreationbase.presentaion.ui.theme.AppTheme
 import com.example.recreationbase.presentaion.ui.theme.Typography
 

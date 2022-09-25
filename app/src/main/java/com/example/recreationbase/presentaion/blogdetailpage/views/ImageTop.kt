@@ -1,4 +1,4 @@
-package com.example.recreationbase.presentaion.blogdetail.views
+package com.example.recreationbase.presentaion.blogdetailpage.views
 
 import android.view.LayoutInflater
 import android.widget.ImageView

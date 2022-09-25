@@ -1,4 +1,4 @@
-package com.example.recreationbase.presentaion.blogdetail
+package com.example.recreationbase.presentaion.blogdetailpage
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -30,21 +30,30 @@ class BlogDetailViewModel @Inject constructor(
     private fun downloadDetailInfoForBlog(id: Int) {
         viewModelScope.launch {
             repository.getDetailInfoBlog(blogId = id).collect { result ->
-                when (result) {
-                    is Resource.Success -> {
-                        result.data?.let {
-                            state = state.copy(info = it)
-                        }
-                    }
-
-                    is Resource.Error -> {
-                        state = state.copy(error = result.message)
-                    }
-
-                    is Resource.Loading -> {
-                        state = state.copy(isLoading = true)
-                    }
+                wrapperForHandlerResource(result = result){
+                    state = state.copy(info = it, isLoading = false)
                 }
+            }
+        }
+    }
+
+    private fun <T> wrapperForHandlerResource(
+        result: Resource<T>,
+        onStateChangeSuccess: (T) -> Unit,
+    ) {
+        when (result) {
+            is Resource.Success -> {
+                result.data?.let {
+                    onStateChangeSuccess(it)
+                }
+            }
+
+            is Resource.Error -> {
+                state = state.copy(isLoading = false,error = result.message)
+            }
+
+            is Resource.Loading -> {
+                state = state.copy(isLoading = true)
             }
         }
     }

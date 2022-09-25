@@ -19,10 +19,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.recreationbase.presentaion.mainpage.MainPage
 import com.example.recreationbase.presentaion.mainpage.MainViewModel
-import com.example.recreationbase.presentaion.blogdetail.BlogDetailPage
-import com.example.recreationbase.presentaion.blogdetail.BlogDetailViewModel
-import com.example.recreationbase.presentaion.fooddetail.FoodDetailPage
-import com.example.recreationbase.presentaion.fooddetail.FoodDetailViewModel
+import com.example.recreationbase.presentaion.blogdetailpage.BlogDetailPage
+import com.example.recreationbase.presentaion.blogdetailpage.BlogDetailViewModel
+import com.example.recreationbase.presentaion.fooddetailpage.FoodDetailPage
+import com.example.recreationbase.presentaion.fooddetailpage.FoodDetailViewModel
 import com.example.recreationbase.presentaion.views.BottomBar
 import com.example.recreationbase.presentaion.views.DestinationPage
 import com.example.recreationbase.presentaion.ui.theme.AppTheme

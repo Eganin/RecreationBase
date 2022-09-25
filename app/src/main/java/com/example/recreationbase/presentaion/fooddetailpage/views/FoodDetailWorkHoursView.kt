@@ -1,4 +1,4 @@
-package com.example.recreationbase.presentaion.fooddetail.views
+package com.example.recreationbase.presentaion.fooddetailpage.views
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text

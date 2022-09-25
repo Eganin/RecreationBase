@@ -1,8 +1,7 @@
-package com.example.recreationbase.presentaion.fooddetail.views
+package com.example.recreationbase.presentaion.fooddetailpage.views
 
 import android.content.Intent
 import android.net.Uri
-import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -22,18 +21,9 @@ import com.example.recreationbase.presentaion.views.ActionButton
 @Composable
 fun FoodDetailContactsView(phoneNumber: String) {
     var startPhoneActivity by remember { mutableStateOf(false) }
-    if (startPhoneActivity) {
-        val callIntent = Intent(Intent.ACTION_CALL)
-        val arrNumbers = phoneNumber.split(" ")
-        var res = ""
-        arrNumbers.forEach {
-            res+=if(it == "+7") "8" else it
-        }
 
-        callIntent.data = Uri.parse("tel:"+res.toLong())
+    if (startPhoneActivity) callPhone(phoneNumber = phoneNumber)
 
-        LocalContext.current.startActivity(callIntent)
-    }
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -58,4 +48,27 @@ fun FoodDetailContactsView(phoneNumber: String) {
             startPhoneActivity = !startPhoneActivity
         }
     }
+}
+
+@Composable
+private fun callPhone(phoneNumber: String) {
+    val callIntent = Intent(Intent.ACTION_CALL)
+    val arrNumbers = if(" " in phoneNumber){
+        phoneNumber.split(" ")
+    }else{
+        phoneNumber.split("-")
+    }
+
+    var res = ""
+    arrNumbers.forEach {
+        res += if (it == "+7") "8" else it
+    }
+
+    var phone = ""
+    res.forEach {
+        if(it.toString() != "(" && it.toString() != ")") phone+=it.toString()
+    }
+
+    callIntent.data = Uri.parse("tel:" + phone.toLong())
+    LocalContext.current.startActivity(callIntent)
 }
